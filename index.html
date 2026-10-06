@@ -151,7 +151,7 @@
             }
         }
     </style>
-    <script>!function () { window._ENV_ = 'production'; window._CMS_ = "%CMS%"; window._UNSUPPORTED_PAGE_ = "unsupported.html"; try { eval("let obj = {}; obj?.prop") } catch (e) { window.location.replace(window._UNSUPPORTED_PAGE_); return } window._CACHE_ = "1746999829739", window.UIL_STATIC_PATH = "assets/data/uil.1746999829739.json"; var p, s = "assets/js/app." + window._CACHE_ + ".js", h = document.head, e = document.createElement("link"); e.href = s, e.rel = "preload", e.as = "script", h.appendChild(e), (e = document.createElement("script")).src = s, e.async = !0, h.appendChild(e) }();</script>
+    <script>!function () { window._ENV_ = 'production'; window._CMS_ = "%CMS%"; window._UNSUPPORTED_PAGE_ = "unsupported.html"; try { eval("let obj = {}; obj?.prop") } catch (e) { window.location.replace(window._UNSUPPORTED_PAGE_); return } window._CACHE_ = "1746999829739", window.UIL_STATIC_PATH = "assets/data/uil.1746999829739.json"; var p, s = "assets/js/app." + window._CACHE_ + ".js?v=aarohan-render-8", h = document.head, e = document.createElement("link"); e.href = s, e.rel = "preload", e.as = "script", h.appendChild(e), (e = document.createElement("script")).src = s, e.async = !0, h.appendChild(e) }();</script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7TMDT4F8N"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -162,24 +162,17 @@
 </head>
 
 <body>
-    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
-        <filter id="red-black-silver-theme">
-            <!-- Reduced red intensity, shifted more towards a silver/grayscale baseline -->
-            <feColorMatrix type="matrix" values="
-                0.5 0.3 0.3 0 0.05
-                0.3 0.3 0.3 0 0
-                0.3 0.3 0.3 0 0
-                0   0   0   1 0
-            " />
-        </filter>
-    </svg>
     <style>
-        /* Force red/black/silver theme across the entire application */
+        /* Black and metallic silver are the base theme; red is reserved for accents. */
         body {
-            /* We use the SVG filter for a precise red & silver mapping, plus some contrast */
-            filter: url(#red-black-silver-theme) contrast(1.1);
             background-color: #000 !important;
             box-sizing: border-box;
+        }
+
+        /* Neutralize the original cyan/green lighting while retaining silver detail
+           and a controlled, low-saturation red accent. */
+        #Stage {
+            filter: grayscale(0.84) sepia(0.24) hue-rotate(300deg) saturate(1.16) contrast(1.06);
         }
 
         /* Fully remove/hide all text boxes, inputs, search fields, and ask prompts */
@@ -207,7 +200,7 @@
             left: -9999px !important;
         }
 
-        /* Silver border accents and reduced red vignette */
+        /* A restrained silver frame keeps the infinity mark readable without tinting the page. */
         body::after {
             content: "";
             position: fixed;
@@ -216,18 +209,203 @@
             right: 0;
             bottom: 0;
             pointer-events: none;
-            /* Silver accents via subtle grid lines and a soft red vignette */
+            /* Subtle silver accents only; avoid a persistent red wash. */
             background-image:
-                linear-gradient(rgba(192, 192, 192, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(192, 192, 192, 0.15) 1px, transparent 1px),
-                radial-gradient(circle, transparent 70%, rgba(150, 0, 0, 0.15) 100%);
-            background-size: 100px 100px, 100px 100px, 100% 100%;
+                linear-gradient(rgba(210, 214, 220, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(210, 214, 220, 0.06) 1px, transparent 1px);
+            background-size: 120px 120px, 120px 120px;
             background-position: center center;
-            border: 4px solid rgba(192, 192, 192, 0.6);
+            border: 2px solid rgba(210, 214, 220, 0.35);
             /* Silver border */
-            box-shadow: inset 0 0 20px rgba(192, 192, 192, 0.2);
-            z-index: 2147483647;
-            /* Ensure it stays on top */
+            box-shadow: inset 0 0 24px rgba(210, 214, 220, 0.08);
+            z-index: 3;
+        }
+
+        /* A very low-key red lift brings the WebGL scene back into the festival palette
+           without turning the silver highlights pink or making the page glow. */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background: rgba(104, 18, 24, 0.14);
+            mix-blend-mode: color;
+            z-index: 1;
+        }
+
+        #scroll-cue {
+            position: fixed;
+            left: 50%;
+            bottom: 28px;
+            transform: translateX(-50%);
+            z-index: 4;
+            color: rgba(235, 226, 226, 0.82);
+            font: 300 11px/1.2 nbarchitekt, Arial, sans-serif;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            text-align: center;
+            pointer-events: none;
+            animation: scrollCuePulse 2.2s ease-in-out infinite;
+        }
+
+        #scroll-cue::after {
+            content: "↓";
+            display: block;
+            margin-top: 7px;
+            color: #d7959a;
+            font-size: 18px;
+            letter-spacing: 0;
+        }
+
+        @keyframes scrollCuePulse {
+            0%, 100% { opacity: 0.48; }
+            50% { opacity: 1; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            #scroll-cue { animation: none; }
+        }
+
+        #aarohan-countdown {
+            position: fixed;
+            left: 50%;
+            top: calc(50% + clamp(150px, 18vw, 220px));
+            transform: translateX(-50%);
+            z-index: 5;
+            color: #d7959a;
+            width: min(100% - 32px, 520px);
+            font: 300 14px/1.25 nbarchitekt, Arial, sans-serif;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            text-align: center;
+            white-space: nowrap;
+            text-shadow: 0 0 12px rgba(215, 149, 154, 0.28);
+            pointer-events: none;
+        }
+
+        @media (max-width: 700px) {
+            #aarohan-countdown {
+                top: calc(50% + 115px);
+                width: calc(100% - 24px);
+                font-size: clamp(11px, 3vw, 13px);
+                letter-spacing: 0.08em;
+            }
+        }
+
+        #coming-soon {
+            position: fixed;
+            inset: 0;
+            display: grid;
+            place-items: center;
+            padding: 24px;
+            background: rgba(0, 0, 0, 0.82);
+            color: #d8d8d8;
+            text-align: center;
+            font: 300 15px/1.6 nbarchitekt, Arial, sans-serif;
+            letter-spacing: 0.08em;
+            z-index: 6;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 220ms ease, visibility 220ms ease;
+        }
+
+        #coming-soon.is-visible {
+            opacity: 1;
+            visibility: visible;
+            /* Informational only: never trap wheel/touch input, especially upward scroll. */
+            pointer-events: none;
+        }
+
+        #coming-soon span {
+            display: block;
+            margin-top: 8px;
+            color: #d7959a;
+            font-size: 11px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        #main-nav-overlay {
+            position: fixed;
+            top: 24px;
+            right: 32px;
+            z-index: 5;
+            width: min(300px, calc(100vw - 48px));
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 18px;
+            padding: 0 20px;
+            border: 1px solid rgba(210, 190, 194, 0.58);
+            border-radius: 28px;
+            background: rgba(10, 8, 9, 0.72);
+            color: #e0dadd;
+            font: 300 12px/1 nbarchitekt, Arial, sans-serif;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            pointer-events: none;
+        }
+
+        #main-nav-overlay span + span::before {
+            content: "";
+            display: inline-block;
+            width: 42px;
+            height: 1px;
+            margin-right: 18px;
+            vertical-align: middle;
+            background: rgba(210, 190, 194, 0.58);
+        }
+
+        #content-switcher {
+            position: fixed;
+            left: 50%;
+            bottom: 24px;
+            transform: translateX(-50%);
+            z-index: 5;
+            display: flex;
+            gap: 8px;
+            transition: opacity 220ms ease, visibility 220ms ease;
+        }
+
+        #content-switcher button {
+            border: 1px solid rgba(215, 149, 154, 0.42);
+            border-radius: 999px;
+            padding: 7px 12px;
+            color: #ded6d8;
+            background: rgba(10, 8, 9, 0.76);
+            font: 300 10px/1 nbarchitekt, Arial, sans-serif;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        #content-switcher button.is-active,
+        #content-switcher button:hover {
+            color: #120c0d;
+            background: #d7959a;
+        }
+
+        body.spine-active #content-switcher {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        @media (max-width: 700px) {
+            #main-nav-overlay {
+                top: 22px;
+                right: 14px;
+                width: min(270px, calc(100vw - 28px));
+                min-height: 44px;
+                padding: 0 12px;
+                font-size: 10px;
+            }
+            #main-nav-overlay span + span::before {
+                width: 26px;
+                margin-right: 12px;
+            }
         }
     </style>
     <noscript>
@@ -237,6 +415,18 @@
     </noscript>
 
     <img id="custom-qr-code" src="/assets/images/ui/custom_qr.png" style="display:none;" />
+    <div id="scroll-cue" aria-hidden="true">Scroll to explore</div>
+    <div id="aarohan-countdown" aria-live="polite">Aarohan begins in --:--:--</div>
+    <nav id="content-switcher" aria-label="Aarohan content">
+        <button class="is-active" data-category="event">Events</button>
+        <button data-category="workshop">Workshops</button>
+        <button data-category="corner">Corners</button>
+        <button data-category="sponsor">Sponsors</button>
+        <button data-category="stall">Stalls</button>
+    </nav>
+    <div id="coming-soon" aria-hidden="true">
+        <div>More of Aarohan is coming soon.<span>Stay tuned · October 9</span></div>
+    </div>
 
     <script>
         // Particle Logo Implementation (Translated from React)
@@ -248,7 +438,7 @@
             cv.style.width = '100%';
             cv.style.height = '100%';
             cv.style.pointerEvents = 'none'; // Don't block interactions below
-            cv.style.zIndex = '2147483647'; // Ensure it's above the WebGL background and overlays
+            cv.style.zIndex = '2'; // Keep the mark behind the app UI and silver frame
             document.body.appendChild(cv);
 
             let alive = true;
@@ -259,11 +449,12 @@
             const cx = cv.getContext('2d', { willReadFrequently: true });
             const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
             let W, H, dpr, S, CX, CY, mouse = { x: -999, y: -999 };
-            const N = 2800, P = [];
+            // Fewer particles and a capped pixel ratio keep the mark smooth on laptops and phones.
+            const N = innerWidth < 700 ? 650 : 1050, P = [];
             let targetPts = [];
 
             function size() {
-                dpr = Math.min(devicePixelRatio || 1, 2);
+                dpr = Math.min(devicePixelRatio || 1, 1.5);
                 W = window.innerWidth;
                 H = window.innerHeight;
                 cv.width = W * dpr;
@@ -272,13 +463,13 @@
 
                 // Top-Left positioning with responsive scale
                 if (W < 700) {
-                    S = 80; // Smaller scale on mobile
-                    CX = 20 + (S * 0.5);
-                    CY = 20 + (S * 0.4);
+                    S = 48; // Small and aligned with the navigation row
+                    CX = 18 + (S * 0.5);
+                    CY = 18 + (S * 0.35);
                 } else {
-                    S = Math.min(Math.max(W * 0.15, 150), 300); // Scale between 150 and 300
-                    CX = 30 + (S * 0.5);
-                    CY = 30 + (S * 0.4);
+                    S = Math.min(Math.max(W * 0.06, 72), 118); // Same visual row as the navbar
+                    CX = 24 + (S * 0.5);
+                    CY = 18 + (S * 0.35);
                 }
             }
 
@@ -343,9 +534,11 @@
                     p.x += p.vx;
                     p.y += p.vy;
 
-                    p.r += (t[2] - p.r) * .08;
-                    p.g += (t[3] - p.g) * .08;
-                    p.b += (t[4] - p.b) * .08;
+                    // Keep the infinity mark metallic silver; source-logo colors are not used.
+                    const silver = p.silver;
+                    p.r += (silver - p.r) * .08;
+                    p.g += (silver + 2 - p.g) * .08;
+                    p.b += (silver + 7 - p.b) * .08;
 
                     cx.fillStyle = 'rgb(' + (p.r | 0) + ',' + (p.g | 0) + ',' + (p.b | 0) + ')';
                     cx.fillRect(p.x, p.y, 1.8, 1.8);
@@ -373,6 +566,7 @@
                     x: window.innerWidth / 2 + Math.cos(a) * r,
                     y: window.innerHeight / 2 + Math.sin(a) * r,
                     vx: 0, vy: 0, r: 60, g: 60, b: 70,
+                    silver: 168 + Math.random() * 64,
                     jx: (Math.random() - .5) * 2,
                     jy: (Math.random() - .5) * 2,
                     t: null
@@ -389,10 +583,112 @@
 
             function fade() {
                 cv.style.opacity = Math.max(0, 1 - window.scrollY / (window.innerHeight * .8));
+                const cue = document.getElementById('scroll-cue');
+                const progress = Math.min(window.scrollY / Math.max(window.innerHeight, 1), 1);
+                cue.style.opacity = String(Math.max(0, 1 - progress * 4));
             }
 
             addL('scroll', fade, { passive: true });
             fade();
+
+            // Release the full experience at 23:59:59 IST on October 8, 2026.
+            const deadline = 0;
+            const countdown = document.getElementById('aarohan-countdown');
+            const comingSoon = document.getElementById('coming-soon');
+            // The About section is the last pre-launch section. Keep the hero/About
+            // experience navigable, but hold the page before the spine begins.
+            const aboutLimit = Math.max(window.innerHeight * 2.8, 1900);
+            let unlocked = Date.now() >= deadline;
+            let sceneScroll = 0;
+            let touchStartY = 0;
+
+            function updateCountdown() {
+                const remaining = Math.max(0, deadline - Date.now());
+                if (!remaining) {
+                    unlocked = true;
+                    countdown.textContent = '';
+                    countdown.style.display = 'none';
+                    return;
+                }
+                const totalSeconds = Math.floor(remaining / 1000);
+                const days = Math.floor(totalSeconds / 86400);
+                const hours = Math.floor(totalSeconds % 86400 / 3600);
+                const minutes = Math.floor(totalSeconds % 3600 / 60);
+                const seconds = totalSeconds % 60;
+                countdown.textContent = 'Aarohan begins in ' + days + 'd ' +
+                    String(hours).padStart(2, '0') + ':' + String(minutes).padStart(2, '0') + ':' + String(seconds).padStart(2, '0');
+            }
+
+            function showComingSoon() {
+                if (unlocked) return;
+                comingSoon.classList.add('is-visible');
+                comingSoon.setAttribute('aria-hidden', 'false');
+            }
+
+            function holdAtAbout(event) {
+                if (unlocked) return;
+                if (event.type === 'wheel') {
+                    const delta = Math.max(-180, Math.min(180, event.deltaY || 0));
+                    sceneScroll = Math.max(0, sceneScroll + delta);
+                    if (delta <= 0 || sceneScroll < aboutLimit) {
+                        if (delta < 0) comingSoon.classList.remove('is-visible');
+                        return;
+                    }
+                } else if (event.type === 'touchmove') {
+                    const delta = touchStartY - event.touches[0].clientY;
+                    if (delta <= 0) {
+                        if (delta < 0) comingSoon.classList.remove('is-visible');
+                        touchStartY = event.touches[0].clientY;
+                        return;
+                    }
+                    sceneScroll = Math.max(0, sceneScroll + Math.min(delta, 180));
+                    touchStartY = event.touches[0].clientY;
+                    if (sceneScroll < aboutLimit) return;
+                }
+                event.preventDefault();
+                showComingSoon();
+            }
+
+            window.addEventListener('wheel', holdAtAbout, { capture: true, passive: false });
+            window.addEventListener('touchstart', event => {
+                touchStartY = event.touches[0].clientY;
+            }, { capture: true, passive: true });
+            window.addEventListener('touchmove', holdAtAbout, { capture: true, passive: false });
+            window.addEventListener('keydown', event => {
+                if (unlocked) return;
+                if (['ArrowUp', 'PageUp', 'Home'].includes(event.key)) {
+                    sceneScroll = Math.max(0, sceneScroll - 120);
+                    comingSoon.classList.remove('is-visible');
+                    return;
+                }
+                if (['ArrowDown', 'PageDown', ' ', 'End'].includes(event.key)) {
+                    sceneScroll = Math.min(aboutLimit, sceneScroll + 120);
+                    if (sceneScroll >= aboutLimit) {
+                        event.preventDefault();
+                        showComingSoon();
+                    }
+                }
+            }, { capture: true });
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            document.querySelectorAll('#content-switcher button').forEach(button => {
+                button.addEventListener('click', () => {
+                    document.querySelectorAll('#content-switcher button').forEach(item => item.classList.remove('is-active'));
+                    button.classList.add('is-active');
+                    document.body.classList.add('spine-active');
+                    const category = button.dataset.category;
+                    if (window.AppState && typeof window.AppState.set === 'function') {
+                        window.AppState.set('ViewController/navigate', 'work');
+                        window.AppState.set('Aarohan/category', category);
+                        const scroll = typeof window.AppState.get === 'function'
+                            ? window.AppState.get('ViewController/scroll')
+                            : null;
+                        if (scroll && typeof scroll.scrollTo === 'function') scroll.scrollTo(aboutLimit);
+                    }
+                });
+            });
+
         });
     </script>
     
