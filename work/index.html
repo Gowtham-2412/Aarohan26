@@ -8,20 +8,20 @@
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover">
     <base href="/">
     <link href="https://activetheory.net" rel="canonical">
-    <title>Active Theory · Creative Digital Experiences</title>
+    <title>AAROHAN</title>
     <meta name="description"
-        content="Founded in 2012. We blend story, art & technology as an in-house team of passionate makers. Our industry-leading web toolset consistently delivers award-winning work through quality & performance. ">
+        content="FOUNDED IN 2001. Aarohan is the second largest techno-managerial festival in Eastern India and the official tech fest of NIT Durgapur. ">
     <meta property="og:url" content="https://activetheory.net">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Active Theory · Creative Digital Experiences">
+    <meta property="og:title" content="AAROHAN">
     <meta property="og:description"
-        content="Founded in 2012. We blend story, art & technology as an in-house team of passionate makers. Our industry-leading web toolset consistently delivers award-winning work through quality & performance. ">
+        content="FOUNDED IN 2001. Aarohan is the second largest techno-managerial festival in Eastern India and the official tech fest of NIT Durgapur. ">
     <meta property="og:image" content="https://storage.googleapis.com/activetheory-v6.appspot.com/media/social.jpg">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://activetheory.net">
-    <meta property="twitter:title" content="Active Theory · Creative Digital Experiences">
+    <meta property="twitter:title" content="AAROHAN">
     <meta property="twitter:description"
-        content="Founded in 2012. We blend story, art & technology as an in-house team of passionate makers. Our industry-leading web toolset consistently delivers award-winning work through quality & performance. ">
+        content="FOUNDED IN 2001. Aarohan is the second largest techno-managerial festival in Eastern India and the official tech fest of NIT Durgapur. ">
     <meta property="twitter:image"
         content="https://storage.googleapis.com/activetheory-v6.appspot.com/media/social.jpg">
     <meta name="apple-mobile-web-app-title" content="Active Theory">
@@ -180,6 +180,31 @@
             filter: url(#red-black-silver-theme) contrast(1.1);
             background-color: #000 !important;
             box-sizing: border-box;
+        }
+
+        /* Fully remove/hide all text boxes, inputs, search fields, and ask prompts */
+        input,
+        textarea,
+        [contenteditable="true"],
+        form,
+        .input,
+        .search,
+        .prompt,
+        .chat,
+        .ask,
+        [class*="input"],
+        [class*="search"],
+        [class*="ask"],
+        [class*="prompt"] {
+            display: none !important;
+            visibility: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            position: absolute !important;
+            top: -9999px !important;
+            left: -9999px !important;
         }
 
         /* Silver border accents and reduced red vignette */
