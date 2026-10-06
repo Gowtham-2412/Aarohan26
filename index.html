@@ -271,9 +271,15 @@
                 cx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
                 // Top-Left positioning with responsive scale
-                S = Math.min(Math.max(W * 0.15, 150), 300); // Scale between 150 and 300
-                CX = 30 + (S * 0.5);
-                CY = 30 + (S * 0.4);
+                if (W < 700) {
+                    S = 80; // Smaller scale on mobile
+                    CX = 20 + (S * 0.5);
+                    CY = 20 + (S * 0.4);
+                } else {
+                    S = Math.min(Math.max(W * 0.15, 150), 300); // Scale between 150 and 300
+                    CX = 30 + (S * 0.5);
+                    CY = 30 + (S * 0.4);
+                }
             }
 
             function sample(img) {
