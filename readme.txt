@@ -5,20 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover">
     <base href="/">
-    <link href="https://activetheory.net" rel="canonical">
-    <title>Active Theory · Creative Digital Experiences</title>
-    <meta name="description" content="Founded in 2012. We blend story, art & technology as an in-house team of passionate makers. Our industry-leading web toolset consistently delivers award-winning work through quality & performance. ">
-    <meta property="og:url" content="https://activetheory.net">
+    <link href="https://arhn.nitdgp.ac.in" rel="canonical">
+    <title>Aarohan 2026</title>
+    <meta name="description" content="Aarohan is the Annual Techno-Management Fest of NIT Durgapur.">
+    <meta property="og:url" content="https://arhn.nitdgp.ac.in">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Active Theory · Creative Digital Experiences">
-    <meta property="og:description" content="Founded in 2012. We blend story, art & technology as an in-house team of passionate makers. Our industry-leading web toolset consistently delivers award-winning work through quality & performance. ">
-    <meta property="og:image" content="https://storage.googleapis.com/activetheory-v6.appspot.com/media/social.jpg">
+    <meta property="og:title" content="Aarohan 2026">
+    <meta property="og:description" content="Aarohan is the Annual Techno-Management Fest of NIT Durgapur.">
+    <meta property="og:image" content="/assets/meta/android-chrome-512x512.png">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://activetheory.net">
-    <meta property="twitter:title" content="Active Theory · Creative Digital Experiences">
-    <meta property="twitter:description" content="Founded in 2012. We blend story, art & technology as an in-house team of passionate makers. Our industry-leading web toolset consistently delivers award-winning work through quality & performance. ">
-    <meta property="twitter:image" content="https://storage.googleapis.com/activetheory-v6.appspot.com/media/social.jpg">
-    <meta name="apple-mobile-web-app-title" content="Active Theory">
+    <meta property="twitter:url" content="https://arhn.nitdgp.ac.in">
+    <meta property="twitter:title" content="Aarohan 2026">
+    <meta property="twitter:description" content="Aarohan is the Annual Techno-Management Fest of NIT Durgapur.">
+    <meta property="twitter:image" content="/assets/meta/android-chrome-512x512.png">
+    <meta name="apple-mobile-web-app-title" content="Aarohan">
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="black">	
 	<link rel="apple-touch-icon" sizes="180x180" href="assets/meta/apple-touch-icon.png">
