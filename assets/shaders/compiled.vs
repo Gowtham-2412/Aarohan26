@@ -2709,7 +2709,9 @@ void main() {
     color.rgb = pow(color.rgb*1.0, vec3(1.5));
     color.a *= uAlpha;
     
-    #drawbuffer Color gl_FragColor = color;
+    // Debug/verification mode: keep the local card image above all visual
+    // overlays so texture loading can be verified independently.
+    #drawbuffer Color gl_FragColor = vec4(image, 1.0);
     #drawbuffer Refraction gl_FragColor = vec4(0.0);
 }{@}ChatBGShader.glsl{@}#!ATTRIBUTES
 
@@ -5937,7 +5939,9 @@ void main() {
 
 
     vec2 imageUV = videoUV - normal.xy * 0.05 * (1.0-uVideoBlend);
-    vec3 image = getRGB(tMap, scaleUV(imageUV, vec2(1.0 + (1.0-uVideoBlend) * 0.1)), 0.0, 0.005 * edges).rgb * 0.7;
+    // Keep the card image as the visible base. Video and refraction effects
+    // must never replace it with a black texture.
+    vec3 image = getRGB(tMap, scaleUV(imageUV, vec2(1.0 + (1.0-uVideoBlend) * 0.1)), 0.0, 0.005 * edges).rgb;
     //image *= mix(1.0, 0.2, edges);
     
     vec3 video = getRGB(tVideo, scaleUV(videoUV, vec2(1.0 + (1.0-uVideoBlend) * 0.1)), 0.0, 0.005 * edges).rgb;
@@ -5945,7 +5949,7 @@ void main() {
     video *= smoothstep(0.7, 0.0, abs(videoUV.x-0.5)) * smoothstep(0.5, 0.4, abs(videoUV.y-0.5));
     video *= mix(0.2, 1.0, fadeVideo);
 
-    vec4 color = vec4(vec3(0.0), 1.0);
+    vec4 color = vec4(image, 1.0);
     //color.rgb += r * mix(0.025, 0.25, vSide);
     color += envColorEquiRGB(tEnv, vRefraction, 0.2, 0.05) * 0.08;
     color.rgb += pow(min(vec3(0.5), video), vec3(1.0)) * 0.45;
