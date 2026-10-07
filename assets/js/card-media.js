@@ -5,7 +5,7 @@
     const driveUrl = 'assets/data/aarohandata.json';
     window.fetch = function cardMediaFetch(input, init) {
         const url = typeof input === 'string' ? input : input && input.url;
-        if (!url || !url.endsWith(projectsUrl)) return nativeFetch(input, init);
+        if (!url || (!url.endsWith(projectsUrl) && !url.endsWith(driveUrl))) return nativeFetch(input, init);
         return nativeFetch(driveUrl, init).then(response => response.json()).then(driveCards => {
             // Aarohan is the sole source of card content. The engine expects a
             // CMS-shaped video object, so provide an image-backed compatibility
