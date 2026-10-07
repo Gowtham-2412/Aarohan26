@@ -27,7 +27,11 @@
                     ? `assets/images/aarohan-cards/card-${localIndex}.${localExtension}`
                     : 'assets/images/ar-logo.png';
                 const category = String(card.type || 'event').toLowerCase();
-                const meta = [card.date, card.time, card.venue].filter(Boolean).join(' • ');
+                const meta = [
+                    `Date : ${card.date || '-'}`,
+                    `Time : ${card.time || '-'}`,
+                    `Venue : ${card.venue || '-'}`
+                ].join('\n');
                 return {
                 ...card,
                 index,
