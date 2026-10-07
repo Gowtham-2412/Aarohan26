@@ -10,6 +10,7 @@
             // Aarohan is the sole source of card content. The engine expects a
             // CMS-shaped video object, so provide an image-backed compatibility
             // object without reintroducing any projects.json fields.
+            const localImageIndex = new Map(driveCards.map((card, index) => [card.id, index]));
             const transformed = driveCards.sort((a, b) => {
                 const left = Date.parse(a.completionDate || a.date || '') || 0;
                 const right = Date.parse(b.completionDate || b.date || '') || 0;
@@ -18,8 +19,12 @@
                 const driveId = card.imageURL ? new URL(card.imageURL).searchParams.get('id') : null;
                 // lh3 serves the file directly and sends permissive CORS headers;
                 // Drive's thumbnail redirect often taints WebGL image textures.
+                const localIndex = localImageIndex.get(card.id);
+                const localExtension = [2, 8, 10, 21].includes(localIndex) ? 'png' : 'jpg';
+                // Same-origin files avoid Drive redirects/CORS entirely and
+                // are safe for texImage2D once ImageDecoder has completed.
                 const imageURL = driveId
-                    ? `https://lh3.googleusercontent.com/d/${driveId}=w1600&v=aarohan-2`
+                    ? `assets/images/aarohan-cards/card-${localIndex}.${localExtension}`
                     : 'assets/images/ar-logo.png';
                 const category = String(card.type || 'event').toLowerCase();
                 const meta = [card.date, card.time, card.venue].filter(Boolean).join(' • ');
@@ -31,6 +36,7 @@
                 // The spine label uses subhead; keep the full description in
                 // body for the detail view and show the timeline metadata here.
                 subhead: meta,
+                cardMeta: meta,
                 body: card.description,
                 video: {
                     thumbnail: imageURL,
