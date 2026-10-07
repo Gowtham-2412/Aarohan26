@@ -178,9 +178,15 @@
             inset: 0;
             pointer-events: none;
             background:
-                radial-gradient(ellipse at 50% 12%, rgba(255, 30, 45, 0.22) 0%, transparent 60%),
-                radial-gradient(ellipse at 50% 92%, rgba(255, 30, 45, 0.26) 0%, transparent 55%),
-                radial-gradient(circle at 50% 50%, rgba(10, 20, 160, 0.28) 0%, transparent 70%),
+                /* Deep blue on the sides (left and right corridor flanks) */
+                radial-gradient(ellipse 32% 85% at 0% 50%, rgba(0, 32, 130, 0.28) 0%, transparent 100%),
+                radial-gradient(ellipse 32% 85% at 100% 50%, rgba(0, 32, 130, 0.28) 0%, transparent 100%),
+                linear-gradient(90deg, rgba(0, 32, 130, 0.22) 0%, transparent 25%, transparent 75%, rgba(0, 32, 130, 0.22) 100%),
+                /* Crimson red in the middle (center core, top logo, and floor reflections) */
+                radial-gradient(ellipse 40% 65% at 50% 50%, rgba(235, 20, 35, 0.22) 0%, transparent 100%),
+                radial-gradient(ellipse 48% 24% at 50% 0%, rgba(235, 20, 35, 0.18) 0%, transparent 100%),
+                radial-gradient(ellipse 48% 24% at 50% 100%, rgba(235, 20, 35, 0.20) 0%, transparent 100%),
+                /* Atmospheric dark sci-fi vignette */
                 linear-gradient(180deg, rgba(3, 5, 9, 0.45) 0%, transparent 35%, rgba(3, 5, 9, 0.7) 100%);
             mix-blend-mode: screen;
             z-index: 1;
