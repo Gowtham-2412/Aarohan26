@@ -4761,6 +4761,7 @@ void main() {
     // alpha = 0.5 + sin(uv.x * 5.0 + time * 10.0) * 0.5;
     // alpha *= 0.5 + cos(abs(uv.y-0.5) * 20.0 + time * 10.0) * 0.5;
 
+    alpha = clamp(alpha * 1.5, 0.0, 1.0);
     alpha *= uAlpha;
 
     color = mix(color, rainbow, smoothstep(1.0, -1.0, abs(alpha-0.5)));
@@ -4833,7 +4834,7 @@ void main() {
 
     color = mix(color, vec4(rainbow, 0.5), smoothstep(0.65, abs(uScrollDelta * 0.02) - 0.2, length(bgUV-0.5)));
     color = mix(color, vec4(rainbow, 0.8), smoothstep(0.25, 0.0, length(bgUV-0.5)));
-    color = mix(color, vec4(rainbow, 0.3 + abs(uScrollDelta * 0.08)), 1.0-innerClip2);
+    color = mix(color, vec4(rainbow, 0.65 + abs(uScrollDelta * 0.08)), 1.0-innerClip2);
 
     vec4 inner = vec4(uColor, 0.7);
     vec2 barUV = scaleUV(vUv, vec2(1.0, 1.0));

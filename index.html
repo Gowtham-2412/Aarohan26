@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover">
-    <base href="/">
+    <base href="./">
     <link href="https://arhn.nitdgp.ac.in" rel="canonical">
     <title>Aarohan 2026</title>
     <meta name="description"
@@ -151,7 +151,7 @@
             }
         }
     </style>
-    <script>!function () { window._ENV_ = 'production'; window._CMS_ = "%CMS%"; window._UNSUPPORTED_PAGE_ = "unsupported.html"; try { eval("let obj = {}; obj?.prop") } catch (e) { window.location.replace(window._UNSUPPORTED_PAGE_); return } window._CACHE_ = "1746999829739", window.UIL_STATIC_PATH = "assets/data/uil.1746999829739.json?v=aarohan-20261007-9"; var p, s = "assets/js/app." + window._CACHE_ + ".js?v=aarohan-20261007-9", h = document.head, e = document.createElement("link"); e.href = s, e.rel = "preload", e.as = "script", h.appendChild(e), (e = document.createElement("script")).src = s, e.async = ! 0, h.appendChild(e) }();</script>
+    <script>!function () { window._ENV_ = 'production'; window._CMS_ = "%CMS%"; window._UNSUPPORTED_PAGE_ = "unsupported.html"; try { eval("let obj = {}; obj?.prop") } catch (e) { window.location.replace(window._UNSUPPORTED_PAGE_); return } window._CACHE_ = "1746999829739", window.UIL_STATIC_PATH = "assets/data/uil.1746999829739.json?v=aarohan-20261007-10"; var p, s = "assets/js/app." + window._CACHE_ + ".js?v=aarohan-20261007-10", h = document.head, e = document.createElement("link"); e.href = s, e.rel = "preload", e.as = "script", h.appendChild(e), (e = document.createElement("script")).src = s, e.async = ! 0, h.appendChild(e) }();</script>
     <script src="assets/js/card-media.js?v=aarohan-20261007-8"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-J7TMDT4F8N"></script>
     <script>
@@ -163,24 +163,34 @@
 </head>
 
 <body>
-    <svg style="width:0;height:0;position:absolute;" aria-hidden="true" focusable="false">
-        <filter id="red-black-silver-theme">
-            <!-- Reduced red intensity, shifted more towards a silver/grayscale baseline -->
-            <feColorMatrix type="matrix" values="
-                0.5 0.3 0.3 0 0.05
-                0.3 0.3 0.3 0 0
-                0.3 0.3 0.3 0 0
-                0   0   0   1 0
-            " />
-        </filter>
-    </svg>
     <style>
-        /* Force red/black/silver theme across the entire application */
+        /* Cyberpunk Industrial Obsidian & Chrome Silver Base */
         body {
-            /* We use the SVG filter for a precise red & silver mapping, plus some contrast */
-            filter: url(#red-black-silver-theme) contrast(1.1);
-            background-color: #000 !important;
+            background-color: #030509 !important;
             box-sizing: border-box;
+        }
+
+        /* Atmospheric Sci-Fi Lighting:
+           Crimson neon floor/ceiling strip glow with cold steel ambience matching the poster */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            background:
+                radial-gradient(ellipse at 50% 12%, rgba(255, 30, 45, 0.22) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 92%, rgba(255, 30, 45, 0.26) 0%, transparent 55%),
+                radial-gradient(circle at 50% 50%, rgba(0, 180, 255, 0.04) 0%, transparent 70%),
+                linear-gradient(180deg, rgba(3, 5, 9, 0.45) 0%, transparent 35%, rgba(3, 5, 9, 0.7) 100%);
+            mix-blend-mode: screen;
+            z-index: 1;
+        }
+
+        /* 3D Scene & Infinity Ribbon:
+           Mapped to glossy crimson ruby-red ribbon with high-contrast chrome steel reflections */
+        #Stage {
+            filter: brightness(0.72) contrast(1.24) grayscale(0.48) sepia(0.36) hue-rotate(318deg) saturate(2.2);
+            transition: filter 0.4s ease;
         }
 
         /* Fully remove/hide all text boxes, inputs, search fields, and ask prompts */
@@ -208,7 +218,7 @@
             left: -9999px !important;
         }
 
-        /* Silver border accents and reduced red vignette */
+        /* Futuristic HUD Frame: Metallic chrome border with laser crimson edge glow */
         body::after {
             content: "";
             position: fixed;
@@ -217,18 +227,67 @@
             right: 0;
             bottom: 0;
             pointer-events: none;
-            /* Silver accents via subtle grid lines and a soft red vignette */
             background-image:
-                linear-gradient(rgba(192, 192, 192, 0.15) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(192, 192, 192, 0.15) 1px, transparent 1px),
-                radial-gradient(circle, transparent 70%, rgba(150, 0, 0, 0.15) 100%);
-            background-size: 100px 100px, 100px 100px, 100% 100%;
+                linear-gradient(rgba(215, 230, 245, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(215, 230, 245, 0.04) 1px, transparent 1px),
+                radial-gradient(circle at center, transparent 60%, rgba(2, 4, 8, 0.85) 100%);
+            background-size: 80px 80px, 80px 80px, 100% 100%;
             background-position: center center;
-            border: 4px solid rgba(192, 192, 192, 0.6);
-            /* Silver border */
-            box-shadow: inset 0 0 20px rgba(192, 192, 192, 0.2);
-            z-index: 2147483647;
-            /* Ensure it stays on top */
+            border: 2px solid rgba(195, 215, 235, 0.38);
+            box-shadow:
+                inset 0 0 32px rgba(2, 4, 8, 0.9),
+                inset 0 0 16px rgba(255, 30, 45, 0.28);
+            z-index: 3;
+        }
+
+        /* Sleek Audio Mute Button (Bottom-left metallic circular HUD button) */
+        #audio-mute-btn {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            z-index: 100;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border: 1px solid rgba(210, 225, 240, 0.45);
+            border-radius: 50%;
+            background: rgba(8, 12, 18, 0.88);
+            color: #f1f5f9;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+            user-select: none;
+        }
+
+        #audio-mute-btn:hover {
+            border-color: #ff2a3b;
+            color: #ffffff;
+            background: rgba(32, 8, 14, 0.94);
+            box-shadow: 0 0 20px rgba(255, 42, 59, 0.65), inset 0 0 10px rgba(255, 42, 59, 0.3);
+            transform: scale(1.08);
+        }
+
+        #audio-mute-btn.is-muted {
+            border-color: #ff2a3b;
+            color: #ff3344;
+            background: rgba(24, 6, 10, 0.92);
+            box-shadow: 0 0 16px rgba(255, 42, 59, 0.5);
+        }
+
+        @media (max-width: 700px) {
+            #audio-mute-btn {
+                bottom: 20px;
+                left: 18px;
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
         }
     </style>
     <noscript>
@@ -237,7 +296,226 @@
             Please enable javascript</p>
     </noscript>
 
-    <img id="custom-qr-code" src="/assets/images/ui/custom_qr.png" style="display:none;" />
+    <button id="audio-mute-btn" type="button" aria-label="Toggle Sound">
+        <span id="audio-mute-icon">🔊</span>
+    </button>
+
+    <img id="custom-qr-code" src="assets/images/ui/custom_qr.png" style="display:none;" />
+
+    <script>
+        // Bulletproof Master Audio / Sound Mute Controller
+        (() => {
+            let isMuted = false;
+            const activeAudios = new Set();
+            const activeContexts = new Set();
+            const masterGainNodes = new Set();
+
+            // Patch Web Audio API AudioContext & webkitAudioContext
+            const OrigAudioContext = window.AudioContext || window.webkitAudioContext;
+            if (OrigAudioContext) {
+                const PatchedAudioContext = function(...args) {
+                    const ctx = new OrigAudioContext(...args);
+                    activeContexts.add(ctx);
+
+                    // Create a transparent master gain node before destination
+                    try {
+                        const masterGain = ctx.createGain();
+                        masterGain.gain.setValueAtTime(isMuted ? 0 : 1, ctx.currentTime);
+                        masterGainNodes.add(masterGain);
+
+                        // Route masterGain to real destination
+                        ctx._rawDestination = ctx.destination;
+                        masterGain.connect(ctx._rawDestination);
+
+                        // Overwrite destination property so all nodes connect through our master gain
+                        Object.defineProperty(ctx, 'destination', {
+                            get: () => masterGain,
+                            configurable: true
+                        });
+                    } catch (e) {
+                        console.warn('AudioContext destination intercept warning:', e);
+                    }
+
+                    // Intercept resume so user interactions don't unmute if muted
+                    const origResume = ctx.resume ? ctx.resume.bind(ctx) : null;
+                    if (origResume) {
+                        ctx.resume = function() {
+                            if (isMuted) {
+                                masterGainNodes.forEach(g => {
+                                    try { g.gain.setValueAtTime(0, ctx.currentTime); } catch(e){}
+                                });
+                                return Promise.resolve();
+                            }
+                            return origResume();
+                        };
+                    }
+
+                    return ctx;
+                };
+
+                PatchedAudioContext.prototype = OrigAudioContext.prototype;
+                window.AudioContext = PatchedAudioContext;
+                if (window.webkitAudioContext) window.webkitAudioContext = PatchedAudioContext;
+            }
+
+            // Patch HTML5 Audio
+            const OriginalAudio = window.Audio;
+            if (OriginalAudio) {
+                window.Audio = function(...args) {
+                    const sound = new OriginalAudio(...args);
+                    activeAudios.add(sound);
+                    if (isMuted) {
+                        sound.muted = true;
+                        sound.volume = 0;
+                    }
+                    const origPlay = sound.play ? sound.play.bind(sound) : null;
+                    if (origPlay) {
+                        sound.play = function() {
+                            if (isMuted) {
+                                sound.muted = true;
+                                sound.volume = 0;
+                                return Promise.resolve();
+                            }
+                            return origPlay();
+                        };
+                    }
+                    return sound;
+                };
+                window.Audio.prototype = OriginalAudio.prototype;
+            }
+
+            function applyMute(muted) {
+                isMuted = muted;
+
+                // Sync storage so framework reads correct state
+                try {
+                    localStorage.setItem('muted', muted ? 'true' : 'false');
+                    sessionStorage.setItem('muted', muted ? 'true' : 'false');
+                } catch(e){}
+
+                // Silence all master gains in WebAudio
+                masterGainNodes.forEach(g => {
+                    try {
+                        g.gain.setValueAtTime(muted ? 0 : 1, g.context.currentTime);
+                    } catch(e){}
+                });
+
+                // Suspend or silence all active AudioContexts
+                activeContexts.forEach(ctx => {
+                    try {
+                        if (muted) {
+                            ctx.suspend?.();
+                        } else {
+                            ctx.resume?.();
+                        }
+                    } catch(e){}
+                });
+
+                // Mute HTML5 audio/video elements
+                activeAudios.forEach(a => {
+                    try {
+                        a.muted = muted;
+                        if (muted) {
+                            a.volume = 0;
+                            a.pause?.();
+                        } else {
+                            a.volume = 1;
+                        }
+                    } catch(e){}
+                });
+                document.querySelectorAll('audio, video').forEach(media => {
+                    try {
+                        media.muted = muted;
+                        if (muted) {
+                            media.volume = 0;
+                            media.pause?.();
+                        }
+                    } catch(e){}
+                });
+
+                // Sync with application framework state if present
+                if (window.AppState?.set) {
+                    window.AppState.set('Global/audioEnabled', muted ? 0 : 1);
+                    window.AppState.set('Sound/mute', muted);
+                    window.AppState.set('Sound/muted', muted);
+                }
+
+                // Update UI button appearance
+                const btn = document.getElementById('audio-mute-btn');
+                const icon = document.getElementById('audio-mute-icon');
+                if (btn && icon) {
+                    if (muted) {
+                        btn.classList.add('is-muted');
+                        btn.setAttribute('aria-label', 'Unmute Sound');
+                        icon.textContent = '🔇';
+                    } else {
+                        btn.classList.remove('is-muted');
+                        btn.setAttribute('aria-label', 'Mute Sound');
+                        icon.textContent = '🔊';
+                    }
+                }
+            }
+
+            // Enforce mute state if muted whenever any click or interaction happens anywhere
+            window.addEventListener('click', () => {
+                if (isMuted) {
+                    masterGainNodes.forEach(g => {
+                        try { g.gain.setValueAtTime(0, g.context.currentTime); } catch(e){}
+                    });
+                    activeAudios.forEach(a => {
+                        try { a.muted = true; a.volume = 0; } catch(e){}
+                    });
+                    activeContexts.forEach(ctx => {
+                        try { ctx.suspend?.(); } catch(e){}
+                    });
+                }
+            }, true);
+
+            document.addEventListener('DOMContentLoaded', () => {
+                const btn = document.getElementById('audio-mute-btn');
+                if (btn) {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        applyMute(!isMuted);
+                    });
+                }
+            });
+        })();
+
+        // Contact Us Toggle Controller (via CONTACT link and Escape key)
+        (() => {
+            function closeContact() {
+                if (window.AppState?.set) {
+                    window.AppState.set('ViewController/contact', false);
+                }
+            }
+
+            document.addEventListener('DOMContentLoaded', () => {
+                // Keyboard Escape key closes contact modal
+                window.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
+                        closeContact();
+                    }
+                });
+
+                // Clicking the CONTACT navigation link toggles it closed if already open
+                window.addEventListener('click', (e) => {
+                    const target = e.target?.closest?.('a, button');
+                    if (!target) return;
+                    const label = `${target.textContent || ''} ${target.getAttribute('aria-label') || ''}`;
+                    if (/contact/i.test(label)) {
+                        const isOpen = window.AppState?.get?.('ViewController/contact', true);
+                        if (isOpen) {
+                            e.preventDefault();
+                            e.stopImmediatePropagation();
+                            closeContact();
+                        }
+                    }
+                }, true);
+            });
+        })();
+    </script>
 
     <script>
         // Particle Logo Implementation (Translated from React)
@@ -249,7 +527,7 @@
             cv.style.width = '100%';
             cv.style.height = '100%';
             cv.style.pointerEvents = 'none'; // Don't block interactions below
-            cv.style.zIndex = '2147483647'; // Ensure it's above the WebGL background and overlays
+            cv.style.zIndex = '2'; // Behind UI overlays, above WebGL background
             document.body.appendChild(cv);
 
             let alive = true;
@@ -360,7 +638,7 @@
                     i.crossOrigin = "anonymous";
                     i.onload = () => { targetPts = sample(i); resolve(); };
                     i.onerror = reject;
-                    i.src = '/assets/images/ar-logo.png'; // Updated to use the explicitly saved image
+                    i.src = 'assets/images/ar-logo.png'; // Updated to use the explicitly saved image
                 });
             }
 
